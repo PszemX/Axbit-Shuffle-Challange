@@ -3,9 +3,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="header">
-        Axbit shuffle challenge
-      </header>
+      <div className="content">
+        <div className="title">Axbit shuffle challenge</div>
+      </div>
     </div>
   );
 }
