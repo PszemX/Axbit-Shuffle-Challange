@@ -4,12 +4,15 @@ import { useState } from "react";
 function App() {
   const [text, setText] = useState("");
   const [letters, setLetters] = useState([]);
+  const [defaultLetters, setDefaultLetters] = useState([]);
 
   const handleInputChange = (event) => {
     const input = event.target.value.substring(0, 12);
     const inputLetters = input.toUpperCase().split("");
+    const formattedLetters = inputLetters.map((letter) => [letter, randomColor()]);
     setText(input);
-    setLetters(inputLetters.map((letter) => [letter, randomColor()]));
+    setLetters(formattedLetters);
+    setDefaultLetters(formattedLetters);
   };
 
   const handleShuffleClick = () => {
@@ -18,7 +21,7 @@ function App() {
   };
 
   const handleSortClick = () => {
-    setLetters(text.toUpperCase().split(""));
+    setLetters(defaultLetters);
   };
 
   const randomColor = () => {
