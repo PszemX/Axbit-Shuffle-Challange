@@ -49,7 +49,7 @@ function App() {
           <div className="display-section">
             <ul>
               {letters.map((letter) => (
-                <li style={{backgroundColor: letter[1]}}>{letter[0]}</li>
+                <li letter={letter[0]} style={{backgroundColor: letter[1]}}>{letter[0]}</li>
               ))}
             </ul>
           </div>
