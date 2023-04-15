@@ -7,7 +7,7 @@ function App() {
   const [defaultLetters, setDefaultLetters] = useState([]);
 
   const handleInputChange = (event) => {
-    const input = event.target.value.substring(0, 12);
+    const input = event.target.value;
     const inputLetters = input.toUpperCase().split("");
     const formattedLetters = inputLetters.map((letter) => [letter, randomColor()]);
     setText(input);
@@ -41,7 +41,7 @@ function App() {
             <div className="input-section">
               <form>
                 <label>
-                  <input type="text" placeholder="type..." value={text} onChange={handleInputChange}/>
+                  <input type="text" placeholder="type..." value={text} onChange={handleInputChange} maxLength={12}/>
                 </label>
               </form>
             </div>
