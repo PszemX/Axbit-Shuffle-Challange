@@ -11,6 +11,15 @@ function App() {
     setLetters(input.toUpperCase().split(""));
   };
 
+  const handleShuffleClick = () => {
+    const shuffledLetters = [...letters].sort(() => Math.random() - 0.5);
+    setLetters(shuffledLetters);
+  };
+
+  const handleSortClick = () => {
+    setLetters(text.toUpperCase().split(""));
+  };
+
   return (
     <div className="App">
       <div className="content">
@@ -18,8 +27,8 @@ function App() {
         <div className="main-container">
           <div className="menu-bar">
             <div className="buttons-section">
-              <button>Shuffle</button>
-              <button>Sort</button>
+              <button onClick={handleShuffleClick}>Shuffle</button>
+              <button onClick={handleSortClick}>Sort</button>
             </div>
             <div className="input-section">
               <form>
