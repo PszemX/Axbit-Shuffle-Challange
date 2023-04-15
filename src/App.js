@@ -16,8 +16,8 @@ function App() {
   };
 
   const handleShuffleClick = () => {
-    const shuffledLetters = [...letters].sort(([], []) => Math.random() - 0.5);
-    setLetters(shuffledLetters);
+    const shuffledLetters = [...letters].sort(() => Math.random() - 0.5);
+    setLetters(shuffledLetters.sort((a, b) => a[1] - b[1]));
   };
 
   const handleSortClick = () => {
