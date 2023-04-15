@@ -16,7 +16,7 @@ function App() {
   };
 
   const handleShuffleClick = () => {
-    const shuffledLetters = [...letters].sort(() => Math.random() - 0.5);
+    const shuffledLetters = [...letters].sort(([], []) => Math.random() - 0.5);
     setLetters(shuffledLetters);
   };
 
