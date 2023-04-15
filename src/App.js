@@ -3,6 +3,13 @@ import { useState } from "react";
 
 function App() {
   const [text, setText] = useState("");
+  const [letters, setLetters] = useState([]);
+
+  const handleInputChange = (event) => {
+    const input = event.target.value.substring(0, 12);
+    setText(input);
+    setLetters(input.toUpperCase().split(""));
+  };
 
   return (
     <div className="App">
@@ -17,12 +24,18 @@ function App() {
             <div className="input-section">
               <form>
                 <label>
-                  <input type="text" placeholder="type..." />
+                  <input type="text" placeholder="type..." value={text} onChange={handleInputChange}/>
                 </label>
               </form>
             </div>
           </div>
-          <div className="display-section"></div>
+          <div className="display-section">
+            <ul>
+              {letters.map((letter, index) => (
+                <li key={index}>{letter}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
