@@ -7,8 +7,9 @@ function App() {
 
   const handleInputChange = (event) => {
     const input = event.target.value.substring(0, 12);
+    const inputLetters = input.toUpperCase().split("");
     setText(input);
-    setLetters(input.toUpperCase().split(""));
+    setLetters(inputLetters.map((letter) => [letter, randomColor()]));
   };
 
   const handleShuffleClick = () => {
@@ -19,6 +20,10 @@ function App() {
   const handleSortClick = () => {
     setLetters(text.toUpperCase().split(""));
   };
+
+  const randomColor = () => {
+    return "#" + Math.floor(Math.random()*16777215).toString(16);
+  }
 
   return (
     <div className="App">
@@ -40,8 +45,8 @@ function App() {
           </div>
           <div className="display-section">
             <ul>
-              {letters.map((letter, index) => (
-                <li key={index}>{letter}</li>
+              {letters.map((letter) => (
+                <li style={{backgroundColor: letter[1]}}>{letter[0]}</li>
               ))}
             </ul>
           </div>
